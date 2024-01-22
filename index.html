@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Graph Viewer</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Function Graph Viewer</h1>
+        
+        <label for="functionInput">Enter a function (e.g., sin(x), x^2):</label>
+        <input type="text" id="functionInput" placeholder="e.g., sin(x), x^2">
+
+        <div id="graph"></div>
+
+        <div id="sliderContainer">
+            <label for="slider">Adjust the x-value:</label>
+            <input type="range" id="slider" min="-10" max="10" step="0.1" value="0">
+            <span id="sliderValue">0</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
