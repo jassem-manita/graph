@@ -1,57 +1,55 @@
-document.addEventListener('DOMContentLoaded', function () {
-    let currentFunction = "x^2";
-    let currentXValue = 0;
+function showSurprise() {
+    var surpriseDiv = document.getElementById('surprise');
+    var link = document.querySelector('.surprise-link');
 
-    const functionInput = document.getElementById('functionInput');
-    const graphContainer = document.getElementById('graph');
-    const slider = document.getElementById('slider');
-    const sliderValue = document.getElementById('sliderValue');
+    // Change background color to Valentine theme
+    document.body.classList.add('valentine-theme');
 
-    sliderValue.innerText = currentXValue;
+    // Show the surprise message
+    surpriseDiv.style.display = 'block';
+    link.style.display = 'none';
 
-    functionInput.addEventListener('input', updateGraph);
-    slider.addEventListener('input', updateSliderValue);
+    // Start playing background music
+    var backgroundMusic = document.getElementById('background-music');
+    backgroundMusic.play();
 
-    updateGraph();
-
-    function updateGraph() {
-        currentFunction = functionInput.value;
-        const xValues = Array.from({ length: 100 }, (_, i) => i * 0.2 - 10);
-        const yValues = xValues.map(x => evaluateFunction(currentFunction, x));
-
-        Plotly.react(graphContainer, [{
-            x: xValues,
-            y: yValues,
-            type: 'scatter',
-            mode: 'lines',
-            name: currentFunction,
-        }], {
-            margin: { t: 0 },
-        });
-
-        sliderValue.innerText = currentXValue;
-
-        Plotly.react(graphContainer, [{
-            marker: {
-                color: 'red',
-                size: 8,
-            },
-            x: [currentXValue],
-            y: [evaluateFunction(currentFunction, currentXValue)],
-        }]);
+    // Animate emojis
+    var emojiContainer = document.querySelector('.background-emojis');
+    var emojiCount = 100; // Increase the number of emojis
+    for (var i = 0; i < emojiCount; i++) {
+        var emoji = document.createElement('div');
+        emoji.classList.add('emoji');
+        emoji.innerHTML = getRandomEmoji(); // Get a random emoji
+        animateEmoji(emoji);
+        emojiContainer.appendChild(emoji);
     }
+}
 
-    function updateSliderValue() {
-        currentXValue = parseFloat(slider.value);
-        updateGraph();
-    }
 
-    function evaluateFunction(func, x) {
-        try {
-            const expression = func.replace(/x/g, `(${x})`);
-            return math.evaluate(expression);
-        } catch (error) {
-            return NaN;
-        }
-    }
-});
+function animateEmoji(emoji) {
+    var screenHeight = window.innerHeight;
+    var screenWidth = window.innerWidth;
+
+    // Random starting position
+    var startX = Math.random() * screenWidth;
+    var startY = Math.random() * screenHeight;
+
+    // Random ending position
+    var endX = Math.random() * screenWidth;
+    var endY = Math.random() * screenHeight;
+
+    // Set initial position
+    emoji.style.left = startX + 'px';
+    emoji.style.top = startY + 'px';
+
+    // Start animation
+    emoji.style.transition = 'transform 10s linear';
+    emoji.style.transform = 'translate(' + (endX - startX) + 'px, ' + (endY - startY) + 'px)';
+}
+
+function getRandomEmoji() {
+    var emojis = ['❤️', '🎈', '😍', '💖', '💘', '💕','❤️', '🎈', '😍', '💖', '💘', '💕','❤️', '🎈', '😍', '💖', '💘', '💕']; // Add more emojis as needed
+    var randomIndex = Math.floor(Math.random() * emojis.length);
+    return emojis[randomIndex];
+}
+    
