@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Function Graph Viewer</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentine's Day Surprise</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1>Function Graph Viewer</h1>
-        
-        <label for="functionInput">Enter a function (e.g., sin(x), x^2):</label>
-        <input type="text" id="functionInput" placeholder="e.g., sin(x), x^2">
-
-        <div id="graph"></div>
-
-        <div id="sliderContainer">
-            <label for="slider">Adjust the x-value:</label>
-            <input type="range" id="slider" min="-10" max="10" step="0.1" value="0">
-            <span id="sliderValue">0</span>
+      <div id="surprise" style="display: none">
+        <h1>Happy Valentine's Day Siwar</h1>
+        <div class="animation-container" id="animation-container">
+          <img
+            src="her.PNG"
+            alt="Valentine's Day Image"
+            id="valentine-img"
+            onload="setCardSize(this)"
+          />
         </div>
+      </div>
+      <div class="surprise-link">
+        <a href="#" onclick="showSurprise()">Click here for a surprise</a>
+      </div>
     </div>
 
+    <div class="background-emojis">
+      <!-- Emojis will be added dynamically here -->
+    </div>
+
+    <audio id="background-music" loop>
+      <source src="her.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
