@@ -1,0 +1,220 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.surprise-link a {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.animation-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#valentine-img {
+    max-width: 100%;
+    max-height: 100%;
+    animation: scaleIn 2s ease forwards;
+}
+
+.hearts-animation,
+.balloons-animation,
+.confetti-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation-duration: 3s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    opacity: 0;
+}
+
+.hearts-animation {
+    background-image: url('hearts.png');
+    animation-name: heartsAnimation;
+}
+
+.balloons-animation {
+    background-image: url('balloons.png');
+    animation-name: balloonsAnimation;
+}
+
+.confetti-animation {
+    background-image: url('confetti.png');
+    animation-name: confettiAnimation;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes heartsAnimation {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes balloonsAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+}
+
+@keyframes confettiAnimation {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+#valentine-img {
+    max-width: 100%;
+    max-height: 100%;
+    animation: scaleIn 2s ease forwards;
+    border-radius: 10px; /* Adjust the value to make the edges softer */
+}
+/* Add this CSS to your styles.css */
+
+.container {
+    position: relative;
+}
+
+.background-emojis {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.emoji {
+    position: absolute;
+    font-size: 40px;
+}
+
+.valentine-theme {
+    background-color: #ffcccc; /* Example color */
+}
+
+#surprise {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* Add this CSS to your styles.css */
+
+.emoji {
+    position: absolute;
+    font-size: 40px;
+    animation: moveEmoji 10s linear infinite;
+}
+
+@keyframes moveEmoji {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(100%, 100%);
+    }
+}
+/* Add this CSS to your styles.css */
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 0 20px; /* Add padding to the sides */
+}
+
+.surprise-link {
+    margin-top: 20px;
+}
+
+.background-emojis {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.emoji {
+    position: absolute;
+    font-size: 2em; /* Adjust emoji size */
+    animation: moveEmoji 10s linear infinite;
+}
+
+@media screen and (max-width: 600px) {
+    /* Adjust styles for smaller screens */
+    .container {
+        max-width: 90%; /* Adjust max-width */
+    }
+
+    .emoji {
+        font-size: 1.5em; /* Decrease emoji size for smaller screens */
+    }
+}
